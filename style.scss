@@ -21,21 +21,31 @@ body {
   backdrop-filter: blur(10px); /* main glass blur */
   -webkit-backdrop-filter: blur(18px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 10px;
+  // margin: 10px;
 }
 main {
+
   height: auto;
   min-height: 100vh;
   width: 100%;
   padding: 20px;
   background: linear-gradient(145deg, #17345a, #193456, #274f7d);
   display: grid;
-  grid-template-columns: 10% 30% 1fr;
+  grid-template-columns: 10% 30% minmax(0, 1fr);
+  gap: 20px;
   grid-template-rows: auto auto 1fr;
   grid-template-areas:
     "sidebar temp highlights"
     "sidebar info info"
     "sidebar forecast map";
+  .customCursor{
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    z-index: 10000;
+    transition : "all linear 0.1s";
+    pointer-events: none;
+  }
   #sidebar {
     @include glassEffect();
     grid-area: sidebar;
@@ -137,7 +147,11 @@ main {
   }
   #highlights {
     color: rgba(245, 245, 245, 0.751);
-    padding: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
     @include glassEffect();
     grid-area: highlights;
     #atmosInfo {
@@ -331,4 +345,139 @@ main {
       z-index: 1;
     }
   }
+}
+
+
+/* ========================================= */
+/* 1000px – 1200px ONLY (SAME LAYOUT) */
+/* ========================================= */
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+
+  main {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  #sidebar {
+    padding: 14px;
+
+    img {
+      height: 2.4rem;
+      width: 2.4rem;
+    }
+
+    .user #user1 {
+      height: 2.4rem;
+      width: 2.4rem;
+    }
+  }
+
+  /* ---------- TEMP ---------- */
+  #temp {
+    padding: 8px 20px;
+    gap: 0.8rem;
+
+    h1 {
+      font-size: 3.2rem;
+    }
+
+    img {
+      height: 4.2rem;
+      width: 4.2rem;
+    }
+  }
+
+  /* ---------- SEARCH ---------- */
+  #temp .search-bar {
+    height: 28px;
+
+    &:hover {
+      width: 190px;
+    }
+
+    i {
+      font-size: 1.2rem;
+    }
+  }
+
+  /* ---------- HIGHLIGHTS ---------- */
+  #highlights {
+    padding: 8px;
+
+    #atmosInfo {
+      gap: 1.4rem;
+    }
+
+    .atmos {
+      width: 14rem;
+      height: 11.5rem;
+      padding: 8px;
+
+      img {
+        height: 5rem;
+      }
+    }
+
+    #feelsLike {
+      gap: 1.4rem;
+
+      .feel {
+        width: 14rem;
+        height: 5.2rem;
+        padding: 8px;
+      }
+    }
+  }
+
+  /* ---------- INFO ---------- */
+  #info {
+    margin-top: 1.2rem;
+
+    .allInfo {
+      padding: 8px 20px;
+      gap: 2rem;
+    }
+  }
+
+  /* ---------- FORECAST ---------- */
+  #forecast {
+    padding: 8px;
+    max-height: 320px;
+  
+    min-width: 0;
+
+    .day {
+      gap: 1.5rem;
+
+      img {
+        height: 4.2rem;
+        width: 4.2rem;
+      }
+    }
+  }
+
+  /* ---------- MAP ---------- */
+  #map {
+  min-width: 0;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+  
+    /* ---------- OPTIONAL: heavy image hide ---------- */
+    #highlights .atmos img {
+      display: none;
+    }
+  }
+}
+@media (min-width: 1000px) and (max-width :1300px){
+#forecast{
+  .day{
+    .rozDay{
+      display: none;
+    }
+  }
+}
 }

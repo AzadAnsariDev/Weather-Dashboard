@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -22,9 +23,18 @@ main {
   padding: 20px;
   background: linear-gradient(145deg, #17345a, #193456, #274f7d);
   display: grid;
-  grid-template-columns: 10% 30% 1fr;
+  grid-template-columns: 10% 30% minmax(0, 1fr);
+  gap: 20px;
   grid-template-rows: auto auto 1fr;
   grid-template-areas: "sidebar temp highlights" "sidebar info info" "sidebar forecast map";
+}
+main .customCursor {
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  z-index: 10000;
+  transition: "all linear 0.1s";
+  pointer-events: none;
 }
 main #sidebar {
   border-radius: 22px;
@@ -32,7 +42,6 @@ main #sidebar {
   backdrop-filter: blur(10px); /* main glass blur */
   -webkit-backdrop-filter: blur(18px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 10px;
   grid-area: sidebar;
   display: flex;
   justify-content: space-between;
@@ -62,7 +71,6 @@ main #temp {
   backdrop-filter: blur(10px); /* main glass blur */
   -webkit-backdrop-filter: blur(18px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 10px;
   grid-area: temp;
   padding: 10px 30px;
   display: flex;
@@ -123,13 +131,15 @@ main #temp img {
 }
 main #highlights {
   color: rgba(245, 245, 245, 0.751);
-  padding: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   border-radius: 22px;
   background: rgba(137, 197, 222, 0.0588235294); /* soft transparent layer */
   backdrop-filter: blur(10px); /* main glass blur */
   -webkit-backdrop-filter: blur(18px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 10px;
   grid-area: highlights;
 }
 main #highlights #atmosInfo {
@@ -144,7 +154,6 @@ main #highlights #atmosInfo .atmos {
   backdrop-filter: blur(10px); /* main glass blur */
   -webkit-backdrop-filter: blur(18px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 10px;
   padding: 10px;
   height: 13rem;
   width: 16rem;
@@ -179,7 +188,6 @@ main #highlights #feelsLike .feel {
   backdrop-filter: blur(10px); /* main glass blur */
   -webkit-backdrop-filter: blur(18px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 10px;
   height: 6rem;
   width: 16rem;
   background: rgba(107, 107, 107, 0.3176470588);
@@ -252,7 +260,6 @@ main #forecast {
   backdrop-filter: blur(10px); /* main glass blur */
   -webkit-backdrop-filter: blur(18px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 10px;
   grid-area: forecast;
   padding: 10px;
   display: flex;
@@ -288,7 +295,6 @@ main #map {
   backdrop-filter: blur(10px); /* main glass blur */
   -webkit-backdrop-filter: blur(18px); /* Safari support */
   border: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 10px;
   grid-area: map;
   position: relative;
   overflow: hidden;
@@ -315,4 +321,108 @@ main #map::before {
   filter: blur(18px);
   transform: scale(1.15); /* edges cut hone se bachata hai */
   z-index: 1;
+}
+
+/* ========================================= */
+/* 1000px – 1200px ONLY (SAME LAYOUT) */
+/* ========================================= */
+@media (min-width: 1000px) and (max-width: 1200px) {
+  main {
+    padding: 14px;
+    gap: 14px;
+  }
+  /* ---------- SIDEBAR ---------- */
+  #sidebar {
+    padding: 14px;
+  }
+  #sidebar img {
+    height: 2.4rem;
+    width: 2.4rem;
+  }
+  #sidebar .user #user1 {
+    height: 2.4rem;
+    width: 2.4rem;
+  }
+  /* ---------- TEMP ---------- */
+  #temp {
+    padding: 8px 20px;
+    gap: 0.8rem;
+  }
+  #temp h1 {
+    font-size: 3.2rem;
+  }
+  #temp img {
+    height: 4.2rem;
+    width: 4.2rem;
+  }
+  /* ---------- SEARCH ---------- */
+  #temp .search-bar {
+    height: 28px;
+  }
+  #temp .search-bar:hover {
+    width: 190px;
+  }
+  #temp .search-bar i {
+    font-size: 1.2rem;
+  }
+  /* ---------- HIGHLIGHTS ---------- */
+  #highlights {
+    padding: 8px;
+  }
+  #highlights #atmosInfo {
+    gap: 1.4rem;
+  }
+  #highlights .atmos {
+    width: 14rem;
+    height: 11.5rem;
+    padding: 8px;
+  }
+  #highlights .atmos img {
+    height: 5rem;
+  }
+  #highlights #feelsLike {
+    gap: 1.4rem;
+  }
+  #highlights #feelsLike .feel {
+    width: 14rem;
+    height: 5.2rem;
+    padding: 8px;
+  }
+  /* ---------- INFO ---------- */
+  #info {
+    margin-top: 1.2rem;
+  }
+  #info .allInfo {
+    padding: 8px 20px;
+    gap: 2rem;
+  }
+  /* ---------- FORECAST ---------- */
+  #forecast {
+    padding: 8px;
+    max-height: 320px;
+    min-width: 0;
+  }
+  #forecast .day {
+    gap: 1.5rem;
+  }
+  #forecast .day img {
+    height: 4.2rem;
+    width: 4.2rem;
+  }
+  /* ---------- MAP ---------- */
+  #map {
+    min-width: 0;
+    /* ---------- OPTIONAL: heavy image hide ---------- */
+  }
+  #map h1 {
+    font-size: 1.6rem;
+  }
+  #map #highlights .atmos img {
+    display: none;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1300px) {
+  #forecast .day .rozDay {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

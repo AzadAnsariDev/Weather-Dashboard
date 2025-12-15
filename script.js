@@ -69,9 +69,11 @@ let sunRiseData = document.querySelector("#sunRise");
 let sunSetData = document.querySelector("#sunSet");
 let errMsg = document.querySelector("#errorMsg");
 let foreCastContainer = document.querySelector("#forecast");
-let sevenDay = document.querySelector('.sevenDay')
-let sixDay = document.querySelector('.sixDay')
+let sevenDay = document.querySelector('.sevenDay');
+let sixDay = document.querySelector('.sixDay');
+let customCursor = document.querySelector('.customCursor')
 let days;
+
 
 async function setData() {
   try {
@@ -149,7 +151,7 @@ async function setData() {
             <img src="https://www.freeiconspng.com/uploads/weather-icon-png-15.png" alt="">
             <h2>+${data.foreCast.maxTemp[i].toFixed(0)}/+${data.foreCast.minTemp[i].toFixed(0)}</h2>
             <h4>${currDate}</h4>
-            <h4>${currDay}</h4>
+            <h4 class="rozDay">${currDay}</h4>
         </div>`;
     }
   } catch (err) {
@@ -206,3 +208,9 @@ sixDay.addEventListener('click',(e)=>{
   setData();              // ⭐ forecast dubara render
 });
 
+
+window.addEventListener('mousemove',(e)=>{
+  customCursor.style.top = e.clientY + "px"
+  customCursor.style.left = e.clientX + "px"
+  customCursor.style.transition = "all linear 0.1s"
+})
