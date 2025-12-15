@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <main>
+        <div id="sidebar">
+            <div id="weatherLogo">
+                <img src="https://png.pngtree.com/png-vector/20231108/ourmid/pngtree-red-volumetric-star-3d-render-png-image_10439780.png"
+                    alt="">
+                <h3>WeatherLy</h3>
+            </div>
+            <div class="user">
+                <img id="user1"
+                    src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="">
+            </div>
+        </div>
+        <div id="temp">
+            <div class="search-wrapper">
+                <div class="search-bar">
+                    <input type="text" id="input" placeholder="Search...">
+                    <i class="ri-search-line"></i>
+                </div>
+                <p id="errorMsg"></p>
+            </div>
+            <img src="https://static.vecteezy.com/system/resources/previews/026/571/030/non_2x/weather-icon-with-sun-and-cloud-on-transparent-background-free-png.png"
+                alt="">
+            <h1 id="temperature">28°C</h1>
+            <h3 id="description"><i class="ri-heavy-showers-line"></i>Rainy Storm Cloud</h3>
+            <h3 id="cityName"><i class="ri-map-pin-line"></i>Florida, US</h3>
+            <h3 id="dateTime"><i class="ri-calendar-line"></i>24 July, 2022 5:01 AM</h3>
+
+        </div>
+        <div id="highlights">
+            <h1>Todays highlights</h1>
+            <div id="atmosInfo">
+                <div class="atmos">
+                    <h3>Wind Status</h3>
+                    <img src="https://png.pngtree.com/png-vector/20250211/ourmid/pngtree-visually-appealing-swirling-wind-gust-illustration-with-dynamic-motion-png-image_15442987.png"
+                        alt="">
+                    <h2 id="wind">7.90kmph</h2>
+                </div>
+                <div class="atmos">
+                    <h3>UV Index</h3>
+                    <img src="https://www.gibtele.com/uploads/personal/broadband/header-speed-test.png" alt="">
+                    <h2 id="center">5.0 UV</h2>
+                </div>
+                <div class="atmos">
+                    <h3>Sunrise & Sunset</h3>
+                    <img src="sun-removebg-preview.png" alt="">
+                    <div id="suntime">
+                        <h4 id="sunRise">Sunrise <br>6:09AM</h4>
+                        <h4 id="sunSet">Sunrise <br>7:09PM</h4>
+                    </div>
+                </div>
+            </div>
+            <div id="feelsLike">
+                <div class="feel">
+                    <h3>Humidity</h3>
+                    <h2 id="humidity">84%</h2>
+                </div>
+                <div class="feel">
+                    <h3>Visibility</h3>
+                    <h2 id="visibility">0.3</h2>
+                </div>
+                <div class="feel">
+                    <h3>Feels Like</h3>
+                    <h2 id="feels">30°C<h2>
+                </div>
+
+            </div>
+        </div>
+        <div id="info">
+            <div class="allInfo">
+                <div id="days">
+                    <h3>7 days Forecast</h3>
+                    <div class="alldays">
+                        <div class="dropdown sevenDay">7 days <i class="ri-arrow-down-s-line"></i></div>
+                        <div class="sixDay dropdown">
+                            <div class="opt">6 days <i class="ri-arrow-down-s-line"></i></div>
+                            <div class="opt">5 days <i class="ri-arrow-down-s-line"></i></div>
+                            <div class="opt">4 days <i class="ri-arrow-down-s-line"></i></div>
+                            <div class="opt">3 days <i class="ri-arrow-down-s-line"></i></div>
+                            <div class="opt">2 days <i class="ri-arrow-down-s-line"></i></div>
+                            <div class="opt">1 days <i class="ri-arrow-down-s-line"></i></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="mapInfo">
+                    <h3>Weather Condition Map</h3>
+                    <div class="dropdown">7 days <i class="ri-arrow-down-s-line"></i></div>
+                </div>
+            </div>
+        </div>
+        <div id="forecast">
+            <div class="day">
+                <img src="https://www.freeiconspng.com/uploads/weather-icon-png-15.png" alt="">
+                <h2>+29°C/+18</h2>
+                <h4>25 July</h4>
+                <h4>Mon</h4>
+            </div>
+            <div class="day">
+                <img src="https://freesvg.org/img/Regen.png" alt="">
+                <h2>+29°C/+18</h2>
+                <h4>25 July</h4>
+                <h4>Tues</h4>
+            </div>
+            <div class="day">
+                <img src="https://www.freeiconspng.com/uploads/weather-icon-png-15.png" alt="">
+                <h2>+29°C/+18</h2>
+                <h4>25 July</h4>
+                <h4>Wed</h4>
+            </div>
+            <div class="day">
+                <img src="https://www.freeiconspng.com/uploads/weather-icon-png-15.png" alt="">
+                <h2>+29°C/+18</h2>
+                <h4>25 July</h4>
+                <h4>Thur</h4>
+            </div>
+        </div>
+        <div id="map">
+            <h1>In Developing Phase</h1>
+        </div>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

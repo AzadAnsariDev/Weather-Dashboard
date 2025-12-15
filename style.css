@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgba(245, 245, 245, 0.751);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+main {
+  height: auto;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(145deg, #17345a, #193456, #274f7d);
+  display: grid;
+  grid-template-columns: 10% 30% 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas: "sidebar temp highlights" "sidebar info info" "sidebar forecast map";
+}
+main #sidebar {
+  border-radius: 22px;
+  background: rgba(137, 197, 222, 0.0588235294); /* soft transparent layer */
+  backdrop-filter: blur(10px); /* main glass blur */
+  -webkit-backdrop-filter: blur(18px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 10px;
+  grid-area: sidebar;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  color: whitesmoke;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+main #sidebar img {
+  height: 3rem;
+  width: 3rem;
+}
+main #sidebar #weatherLogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main #sidebar .user #user1 {
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+}
+main #temp {
+  border-radius: 22px;
+  background: rgba(137, 197, 222, 0.0588235294); /* soft transparent layer */
+  backdrop-filter: blur(10px); /* main glass blur */
+  -webkit-backdrop-filter: blur(18px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 10px;
+  grid-area: temp;
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  justify-content: flex-start;
+  color: rgba(245, 245, 245, 0.751);
+}
+main #temp h1 {
+  font-size: 4rem;
+}
+main #temp .search-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main #temp .search-wrapper .search-bar {
+  width: 40px;
+  height: 30px;
+  padding: 5px 10px;
+  background: #3c3c3c;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+main #temp .search-wrapper .search-bar:hover, main #temp .search-wrapper .search-bar:has(i:hover) {
+  width: 220px;
+}
+main #temp .search-wrapper .search-bar input {
+  display: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  height: 1.4rem;
+  color: white;
+}
+main #temp .search-wrapper .search-bar #errorMsg {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: none; /* default hidden */
+}
+main #temp .search-wrapper .search-bar:hover input, main #temp .search-wrapper .search-bar:has(i:hover) input {
+  display: block;
+}
+main #temp .search-wrapper .search-bar i {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+main #temp img {
+  height: 5rem;
+  width: 5rem;
+}
+main #highlights {
+  color: rgba(245, 245, 245, 0.751);
+  padding: 10px;
+  border-radius: 22px;
+  background: rgba(137, 197, 222, 0.0588235294); /* soft transparent layer */
+  backdrop-filter: blur(10px); /* main glass blur */
+  -webkit-backdrop-filter: blur(18px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 10px;
+  grid-area: highlights;
+}
+main #highlights #atmosInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+main #highlights #atmosInfo .atmos {
+  border-radius: 22px;
+  background: rgba(137, 197, 222, 0.0588235294); /* soft transparent layer */
+  backdrop-filter: blur(10px); /* main glass blur */
+  -webkit-backdrop-filter: blur(18px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 10px;
+  padding: 10px;
+  height: 13rem;
+  width: 16rem;
+  background: rgba(107, 107, 107, 0.3176470588);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+main #highlights #atmosInfo .atmos #suntime {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main #highlights #atmosInfo .atmos #center {
+  text-align: center;
+}
+main #highlights #atmosInfo .atmos img {
+  height: 6rem;
+  width: 100%;
+}
+main #highlights #feelsLike {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+main #highlights #feelsLike .feel {
+  border-radius: 22px;
+  background: rgba(137, 197, 222, 0.0588235294); /* soft transparent layer */
+  backdrop-filter: blur(10px); /* main glass blur */
+  -webkit-backdrop-filter: blur(18px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 10px;
+  height: 6rem;
+  width: 16rem;
+  background: rgba(107, 107, 107, 0.3176470588);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+main #info {
+  margin-top: 2rem;
+  grid-area: info;
+}
+main #info .allInfo {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+main #info .allInfo #days {
+  width: 30%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+main #info .allInfo #days .dropdown {
+  background-color: rgb(71, 71, 71);
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+main #info .allInfo #days .alldays {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  gap: 0.7rem;
+  background-color: rgb(71, 71, 71);
+}
+main #info .allInfo #days .alldays .sixDay {
+  display: flex;
+  top: 100%;
+  position: absolute;
+  flex-direction: column;
+  gap: 1rem;
+  display: none;
+}
+main #info .allInfo #days .alldays .sixDay div:hover {
+  background-color: gray;
+  border-radius: 2px;
+  cursor: pointer;
+}
+main #info .allInfo #mapInfo {
+  width: 70%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+main #info .allInfo #mapInfo .dropdown {
+  background-color: rgb(71, 71, 71);
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+main #forecast {
+  border-radius: 22px;
+  background: rgba(137, 197, 222, 0.0588235294); /* soft transparent layer */
+  backdrop-filter: blur(10px); /* main glass blur */
+  -webkit-backdrop-filter: blur(18px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 10px;
+  grid-area: forecast;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 400px; /* 4 rows ke hisaab se */
+  overflow-y: auto;
+  padding-right: 6px;
+}
+main #forecast::-webkit-scrollbar {
+  width: 10px;
+}
+main #forecast::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+}
+main #forecast::-webkit-scrollbar-track {
+  background: transparent;
+}
+main #forecast .day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+main #forecast .day img {
+  height: 5rem;
+  width: 5rem;
+}
+main #map {
+  border-radius: 22px;
+  background: rgba(137, 197, 222, 0.0588235294); /* soft transparent layer */
+  backdrop-filter: blur(10px); /* main glass blur */
+  -webkit-backdrop-filter: blur(18px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 10px;
+  grid-area: map;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* TEXT ON TOP */
+  /* BLURRED BG IMAGE */
+}
+main #map h1 {
+  position: relative;
+  z-index: 3;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+}
+main #map::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://previews.123rf.com/images/seamartini/seamartini2209/seamartini220901953/191610537-forecast-weather-night-isobar-map-of-middle-east-wind-front-temperature-diagram-vector.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px);
+  transform: scale(1.15); /* edges cut hone se bachata hai */
+  z-index: 1;
+}/*# sourceMappingURL=style.css.map */
